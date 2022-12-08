@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:path_provider/path_provider.dart';
 
 import 'HomePage.dart';
+import 'login_controller.dart';
 
 void main() {
   runApp(MyApp());
@@ -27,6 +28,9 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
+    var _loginController = LoginController();
+    _loginController.acessos();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -48,17 +52,25 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Login'),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Login'
+                  ),
+                  onChanged: (login) {
+                    _loginController.populaLogin(login);
+                  }
               ),
             ),
             Padding(
               padding: const EdgeInsets.all(15),
               child: TextField(
-                decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Tenant'),
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'Tenant'
+                  ),
+                  onChanged: (tenant) {
+                    _loginController.populaTenant(tenant);
+                  }
               ),
             ),
             Container(
@@ -68,8 +80,12 @@ class _LoginPageState extends State<LoginPage> {
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: FlatButton(
                 onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomePage()));
+                  if (_loginController.validaLogin()) {
+                    Navigator.push(
+                        context, MaterialPageRoute(builder: (_) => HomePage()));
+                  } else {
+                    print("Usuario não cadastrado");
+                  }
                 },
                 child: Text(
                   'Entrar',
