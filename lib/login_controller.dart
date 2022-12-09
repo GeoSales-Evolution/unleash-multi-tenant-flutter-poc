@@ -15,7 +15,7 @@ class LoginController {
     File file = File('$path/acessos.txt');
     var fileArquivo = await file.create();
     fileArquivo.writeAsString(
-        '{"acesso": {"pewter": ["dev1","dev2","dev3"],"goldenrod": ["dev4","dev5","dev6"],"cerulean": ["dev7","dev8","dev9"]}}');
+        '{"acesso": {"pallet": ["ash"], "pewter": ["ash", "dev1","dev2","dev3"],"goldenrod": ["dev4","dev5","dev6"],"cerulean": ["dev7","dev8","dev9"]}}');
     _usuarios = json.decode(await fileArquivo.readAsString());
   }
 
