@@ -4,6 +4,10 @@ import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:unleash/unleash.dart';
 
 class HomePage extends StatefulWidget {
+  const HomePage({this.tenantsOfUser});
+
+  final List<String> tenantsOfUser;
+
   @override
   _HomePageState createState() => _HomePageState();
 }

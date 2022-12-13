@@ -82,7 +82,9 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   if (_loginController.validaLogin()) {
                     Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => HomePage()));
+                        context, MaterialPageRoute(builder: (_) =>
+                          HomePage(tenantsOfUser: _loginController.getTenantsOfUser()))
+                    );
                   } else {
                     print("Usuario não cadastrado");
                   }
