@@ -14,11 +14,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Unleash unl;
+  String tenantSelected;
+  String flagText;
 
   @override
   Widget build(BuildContext context) {
     initConfigs();
-    String flagText;
 
     return Scaffold(
       appBar: AppBar(
@@ -35,6 +36,45 @@ class _HomePageState extends State<HomePage> {
                 child: Text(
                   'Consulta de flags!!',
                   style: TextStyle(color: Colors.black, fontSize: 35),
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(15),
+              child:  Container(
+                height: 50,
+                width: 500,
+                decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.all(Radius.circular(5))
+                ),
+                child: DropdownButtonHideUnderline(
+                  child: ButtonTheme(
+                    alignedDropdown: true,
+                    child: DropdownButton<String>(
+                      value: tenantSelected,
+                      iconEnabledColor:Colors.black,
+                      items: widget.tenantsOfUser.map<DropdownMenuItem<String>>((value) {
+                        return DropdownMenuItem<String>(
+                          value: value,
+                          child: Text(
+                              value,
+                              style: TextStyle(fontSize: 16)
+                          ),
+                        );
+                      }).toList(),
+                      hint:Text(
+                        "Escolha um tenant",
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 16,
+                        ),
+                      ),
+                      onChanged: (value) {
+                        setState(() => tenantSelected = value);
+                      },
+                    ),
+                  ),
                 ),
               ),
             ),
