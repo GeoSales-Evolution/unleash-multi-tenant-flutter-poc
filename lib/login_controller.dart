@@ -40,4 +40,14 @@ class LoginController {
 
     return listaLogins.contains(_login);
   }
+
+  List<String> getTenantsOfUser() {
+    List<String> allTenantsOfUser = [];
+    for (final tenant in (_usuarios['acesso'] as Map).keys) {
+      if (_usuarios['acesso'][tenant].contains(_login)) {
+        allTenantsOfUser.add(tenant);
+      }
+    }
+    return allTenantsOfUser;
+  }
 }
