@@ -60,6 +60,43 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ),
+
+            if (unl.isEnabled('flag'))
+              Container(
+                height: 30,
+                width: 120,
+                decoration: BoxDecoration(
+                    color: Colors.red, borderRadius: BorderRadius.circular(20)),
+                child: FlatButton(
+                    onPressed: () {},
+                    child: Text('gitlab flag')
+                ),
+              ),
+
+            if (unl.isEnabled('teste_docker_proxy'))
+              Container(
+                height: 30,
+                width: 120,
+                decoration: BoxDecoration(
+                    color: Colors.green, borderRadius: BorderRadius.circular(20)),
+                child: FlatButton(
+                    onPressed: () {},
+                    child: Text('docker proxy flag')
+                ),
+              ),
+
+            if (unl.isEnabled('teste_relatorio_mobile'))
+              Container(
+                height: 30,
+                width: 120,
+                decoration: BoxDecoration(
+                    color: Colors.deepPurpleAccent, borderRadius: BorderRadius.circular(20)),
+                child: FlatButton(
+                    onPressed: () {},
+                    child: Text('mobile report flag')
+                ),
+              ),
+
           ],
         ),
       )
