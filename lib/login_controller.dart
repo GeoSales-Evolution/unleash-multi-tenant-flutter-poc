@@ -9,6 +9,14 @@ class LoginController {
   String _tenant;
   String _login;
 
+  get getTenant => _tenant;
+  get getLogin => _login;
+
+  void logOff() {
+    _login = null;
+    _tenant = null;
+  }
+
   Future<void> acessos() async {
     Directory directory = await getApplicationDocumentsDirectory();
     String path = directory.path;
