@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
-
 import 'package:flutter_dotenv/flutter_dotenv.dart' as DotEnv;
 import 'package:unleash/unleash.dart';
+import 'package:unleash_poc/info_user.dart';
+import 'package:unleash_poc/login_controller.dart';
+
+import 'login_controller.dart';
 
 class HomePage extends StatefulWidget {
+  final LoginController login;
+  const HomePage(this.login);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
@@ -62,7 +68,8 @@ class _HomePageState extends State<HomePage> {
             ),
           ],
         ),
-      )
+      ),
+      drawer: InfoUser(widget.login)
     );
   }
 

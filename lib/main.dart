@@ -1,9 +1,7 @@
-import 'dart:io';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:path_provider/path_provider.dart';
 
-import 'HomePage.dart';
+import 'home_page.dart';
 import 'login_controller.dart';
 
 void main() {
@@ -82,7 +80,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: () {
                   if (_loginController.validaLogin()) {
                     Navigator.push(
-                        context, MaterialPageRoute(builder: (_) => HomePage()));
+                        context, MaterialPageRoute(builder: (_) => HomePage(_loginController)));
                   } else {
                     print("Usuario não cadastrado");
                   }
