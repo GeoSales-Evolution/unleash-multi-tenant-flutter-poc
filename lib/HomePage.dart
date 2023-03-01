@@ -9,12 +9,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Unleash unl;
+  late Unleash unl;
 
   @override
   Widget build(BuildContext context) {
     initConfigs();
-    String flagText;
+    String flagText = '';
 
     return Scaffold(
       appBar: AppBar(
@@ -67,13 +67,13 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> initConfigs() async {
-    await DotEnv.load();
+    await DotEnv.dotenv.load();
 
     unl = await Unleash.init(
       UnleashSettings(
         appName: '<appname>',
-        instanceId: '${DotEnv.env['INSTANCE_ID']}',
-        unleashApi: Uri.parse('${DotEnv.env['URL_API']}'),
+        instanceId: '${DotEnv.dotenv.env['INSTANCE_ID']}',
+        unleashApi: Uri.parse('${DotEnv.dotenv.env['URL_API']}'),
       ),
     );
   }
