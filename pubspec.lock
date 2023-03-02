@@ -253,7 +253,7 @@ packages:
       name: unleash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.0"
+    version: "0.4.1"
   vector_math:
     dependency: transitive
     description:

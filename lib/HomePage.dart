@@ -74,6 +74,7 @@ class _HomePageState extends State<HomePage> {
         appName: '<appname>',
         instanceId: '${DotEnv.dotenv.env['INSTANCE_ID']}',
         unleashApi: Uri.parse('${DotEnv.dotenv.env['URL_API']}'),
+        apiToken: 'not used by gitlab'
       ),
     );
   }
