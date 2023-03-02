@@ -6,8 +6,8 @@ import 'package:path_provider/path_provider.dart';
 class LoginController {
 
   var _usuarios;
-  String _tenant;
-  String _login;
+  String? _tenant;
+  String? _login;
 
   Future<void> acessos() async {
     Directory directory = await getApplicationDocumentsDirectory();
