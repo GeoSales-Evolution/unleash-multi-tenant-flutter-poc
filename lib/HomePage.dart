@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
                   color: Colors.blue, borderRadius: BorderRadius.circular(20)),
               child: FlatButton(
                 onPressed: () {
-                  print('flag ativa? == ${unl.isEnabled(flagText)}');
+                  print('Is feature accessible ? == ${unl.isEnabled(flagText, localContext: Context(userId: "Capivara"))}');
                 },
                 child: Text(
                   'Consultar',
